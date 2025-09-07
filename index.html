@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Qwickin — Quick. Reliable. Professional.</title>
-  <meta name="description" content="Your trusted partner for fast, reliable IT services." />
-  <link rel="icon" href="data:;base64,=" />
+  <meta name="description" content="Qwickin provides fast, reliable IT solutions for small and mid-sized businesses—support, email, websites, and infrastructure." />
+
+  <link rel="canonical" href="https://qwickin.com/">
+  <link rel="icon" href="/favicon.ico">
+
+  <meta property="og:title" content="Qwickin — Quick. Reliable. Professional.">
+  <meta property="og:description" content="IT support, email setup, websites, and infrastructure for Australian SMBs.">
+  <meta property="og:url" content="https://qwickin.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://qwickin.com/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white text-gray-900">
+  <!-- Header -->
   <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-    <div class="flex items-center gap-2 font-semibold text-xl">
-      <span class="rounded-lg border px-2 py-1">Qi</span>
-      <span>Qwickin</span>
-    </div>
+    <a href="/" class="flex items-center gap-3">
+      <img src="/assets/qwickin-logo.svg" alt="Qwickin logo" class="h-9 w-auto" />
+      <span class="font-semibold text-xl">Qwickin</span>
+    </a>
     <nav class="hidden md:flex gap-6">
       <a href="#services" class="hover:underline">Services</a>
       <a href="#about" class="hover:underline">About</a>
@@ -22,6 +34,7 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-6">
+    <!-- Hero -->
     <section class="py-16 text-center">
       <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
         Quick. Reliable. <span class="text-green-600">Professional.</span>
@@ -35,6 +48,7 @@
       </div>
     </section>
 
+    <!-- Services -->
     <section id="services" class="py-12">
       <h2 class="text-3xl font-bold text-center">Our Services</h2>
       <p class="text-center text-gray-600 mt-2">Tailored IT support for your business needs.</p>
@@ -58,11 +72,43 @@
       </div>
     </section>
 
-    <section id="contact" class="py-16">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold">Let’s talk</h2>
-        <p class="text-gray-600 mt-2">Email: <a href="mailto:vinay@qwickin.com" class="underline">vinay@qwickin.com</a></p>
-        <p class="text-gray-600">Phone: <a href="tel:+61XXXXXXX" class="underline">+61 XXX XXX XXX</a></p>
+    <!-- About -->
+    <section id="about" class="py-12 border-t">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold">About Qwickin</h2>
+        <p class="mt-4 text-gray-600">
+          We help Australian & Indian SMBs move faster with dependable IT—covering support, email & identity, secure networks,
+          and clean, conversion-focused websites. Straight answers, no fluff.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact / Branches -->
+    <section id="contact" class="py-16 border-t">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center">Contact</h2>
+        <p class="mt-3 text-center text-gray-600">
+          Email:
+          <a href="mailto:info@qwickin.com" class="underline">info@qwickin.com</a>
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border">
+            <h3 class="font-semibold text-lg">Melbourne, Australia</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Phone:
+              <a class="underline" href="tel:+61424127808">+61 424 127 808</a>
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl border">
+            <h3 class="font-semibold text-lg">Hyderabad, India</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              Phone:
+              <a class="underline" href="tel:+919985655665">+91 99856 55665</a>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -70,6 +116,7 @@
   <footer class="py-8 text-center text-sm text-gray-500 border-t">
     © <span id="y"></span> Qwickin. All rights reserved.
   </footer>
+
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
