@@ -8,21 +8,15 @@
   <link rel="canonical" href="https://qwickin.com/">
   <link rel="icon" href="/favicon.ico">
 
-  <!-- Fonts (Triskele-like feel) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- QW-V6: Inter + Inter Tight -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif; }
+  h1, h2, h3 { font-family: "Inter Tight", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif; }
+</style>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html{scroll-behavior:smooth}
-    body{
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
-    }
-    h1,h2,h3{
-      font-family: "Inter Tight", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif;
-    }
-  </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
   <!-- Decorative gradients -->
@@ -36,10 +30,11 @@
       <a href="#" class="flex items-center gap-3" aria-label="Qwickin home">
         <!-- Logo at repo root; glow/boost so it stands out on dark -->
         <img
-          src="qwickin-logo.svg"
-          alt="Qwickin"
-          class="h-12 md:h-14 lg:h-16 w-auto filter brightness-125 contrast-125 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]"
-        />
+  src="qwickin-logo.svg"
+  alt="Qwickin"
+  class="h-12 md:h-14 lg:h-16 w-auto filter brightness-125 contrast-125 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]"
+/>
+
         <span class="sr-only">Qwickin</span>
       </a>
 
