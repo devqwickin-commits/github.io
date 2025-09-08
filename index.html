@@ -5,109 +5,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Qwickin — Apps & Cybersecurity (SOC, Pentest, GRC) • IT & Web</title>
   <meta name="description" content="We build apps and secure them. SOC, Penetration Testing, GRC, Microsoft 365, IT support from scratch, and modern web design. Melbourne & Hyderabad." />
-  <link rel="canonical" href="https://qwickin.com/">
   <link rel="icon" href="/favicon.ico">
 
-  <!-- QW-V6: Inter + Inter Tight -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-  html { scroll-behavior: smooth; }
-  body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif; }
-  h1, h2, h3 { font-family: "Inter Tight", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", sans-serif; }
-</style>
+  <!-- Fonts (graceful fallback if blocked) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    :root{
+      --bg:#0a1220;            /* dark navy */
+      --bg-soft:#111a2a;
+      --bg-soft2:#0e1626;
+      --text:#e6edf3;          /* off-white */
+      --muted:#93a4b8;
+      --line:rgba(255,255,255,.08);
+      --chip:rgba(255,255,255,.06);
+      --card:rgba(255,255,255,.06);
+      --card-hover:rgba(255,255,255,.10);
+      --accent:#10b981;        /* emerald 500 */
+      --accent-600:#059669;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:16px;
+      --radius-sm:12px;
+      --radius-lg:24px;
+      --container:1160px;
+    }
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Helvetica Neue",sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    h1,h2,h3{font-family:"Inter Tight", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif}
+    h1{font-weight:800;letter-spacing:-.02em}
+    h2{font-weight:800;letter-spacing:-.01em}
+    h3{font-weight:700}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+    .muted{color:var(--muted)}
+    .btn{display:inline-block;border-radius:14px;padding:12px 18px;font-weight:600;border:1px solid var(--line);transition:.2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--accent);color:#081016;border-color:transparent}
+    .btn-primary:hover{background:var(--accent-600)}
+    .btn-ghost:hover{background:rgba(255,255,255,.05)}
+    .chip{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--chip);font-size:13px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.2s ease}
+    .card:hover{background:var(--card-hover);box-shadow:var(--shadow)}
+    .grid{display:grid;gap:24px}
+    .grid-2{grid-template-columns:repeat(1,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(1,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(1,minmax(0,1fr))}
+    @media (min-width:760px){.grid-2{grid-template-columns:repeat(2,1fr)}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}}
+    .section{padding:64px 0}
+    .section-tight{padding:56px 0}
+    .section-soft{background:var(--bg-soft)}
+    .section-soft2{background:var(--bg-soft2)}
+    .border-top{border-top:1px solid var(--line)}
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(10,18,32,.7);border-bottom:1px solid var(--line)
+    }
+    .nav{display:flex;align-items:center;gap:28px}
+    .nav a{color:#c7d2e2;font-size:14px}
+    .nav a:hover{color:var(--accent)}
+    .logo{height:56px;width:auto;filter:brightness(1.25) contrast(1.25) drop-shadow(0 0 12px rgba(255,255,255,.25))}
+    .menu-btn{display:none;border:1px solid var(--line);padding:8px 10px;border-radius:10px}
+    @media (max-width:900px){
+      .nav{display:none}
+      .menu-btn{display:inline-block;color:#d6e0ee}
+      #mobile{display:none}
+      #mobile.open{display:block;border-top:1px solid var(--line);background:rgba(10,18,32,.9)}
+      #mobile a{display:block;padding:10px 0;color:#c7d2e2}
+      #mobile a:hover{color:var(--accent)}
+    }
+    /* Hero gradient ring */
+    .halo{
+      position:absolute;inset:0;pointer-events:none;z-index:-1;
+      background:radial-gradient(60rem 22rem at 50% -10%, rgba(16,185,129,.20), transparent 60%),
+                 radial-gradient(40rem 16rem at 50% 10%, rgba(16,185,129,.12), transparent 65%);
+      filter:blur(0.5px)
+    }
+    .center{text-align:center}
+    .lead{max-width:820px;margin:18px auto 0;font-size:18px;color:#b6c3d6;line-height:1.6}
+    .h1{font-size:40px}
+    @media (min-width:900px){.h1{font-size:64px}}
+    .accent{color:var(--accent)}
+    footer{border-top:1px solid var(--line);color:#9db0c7}
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100">
-  <!-- Decorative gradients -->
-  <div class="pointer-events-none absolute inset-0 -z-10">
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 h-[34rem] w-[72rem] rounded-full bg-gradient-to-b from-emerald-500/15 via-emerald-300/10 to-transparent blur-3xl"></div>
-  </div>
-
+<body>
   <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-white/5 bg-slate-950/70 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3" aria-label="Qwickin home">
-        <!-- Logo at repo root; glow/boost so it stands out on dark -->
-        <img
-  src="qwickin-logo.svg"
-  alt="Qwickin"
-  class="h-12 md:h-14 lg:h-16 w-auto filter brightness-125 contrast-125 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]"
-/>
-
-        <span class="sr-only">Qwickin</span>
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;">
+      <a href="#" aria-label="Qwickin home" style="display:flex;align-items:center;gap:10px">
+        <img src="qwickin-logo.svg" alt="Qwickin" class="logo">
+        <span class="sr-only" style="position:absolute;left:-9999px">Qwickin</span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-        <a href="#apps" class="hover:text-emerald-400">Apps</a>
-        <a href="#security" class="hover:text-emerald-400">Security</a>
-        <a href="#services" class="hover:text-emerald-400">IT & Web</a>
-        <a href="#about" class="hover:text-emerald-400">About</a>
-        <a href="#contact" class="hover:text-emerald-400">Contact</a>
-        <a href="#contact" class="ml-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-4 py-2 transition">Book a call</a>
-      </nav>
-
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-white/10 text-slate-200" aria-label="Open menu">☰</button>
-    </div>
-
-    <!-- Mobile -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/5 bg-slate-950/90">
-      <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-slate-300">
+      <nav class="nav">
         <a href="#apps">Apps</a>
         <a href="#security">Security</a>
         <a href="#services">IT & Web</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="mt-2 rounded-xl bg-emerald-500 text-slate-900 font-semibold px-4 py-2 text-center">Book a call</a>
+        <a href="#contact" class="btn btn-primary" style="margin-left:6px">Book a call</a>
       </nav>
+
+      <button id="menuBtn" class="menu-btn">☰</button>
     </div>
+
+    <!-- Mobile nav -->
+    <div id="mobile" class="container" style="padding:10px 24px 14px"></div>
   </header>
 
   <!-- Hero -->
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-        Build. Secure. <span class="text-emerald-400">Grow.</span>
-      </h1>
-      <p class="mt-5 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto">
+  <section class="section" style="position:relative">
+    <div class="halo"></div>
+    <div class="container center">
+      <h1 class="h1">Build. Secure. <span class="accent">Grow.</span></h1>
+      <p class="lead">
         We build apps and we defend them—SOC operations, Penetration Testing &amp; GRC.
         Plus Microsoft 365, IT from scratch, and modern web that converts.
       </p>
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <a href="#contact" class="rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-5 py-3 transition">Talk to us</a>
-        <a href="#security" class="rounded-xl px-5 py-3 border border-white/10 hover:bg-white/5 transition">Explore security</a>
+      <div style="margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="#contact" class="btn btn-primary">Talk to us</a>
+        <a href="#security" class="btn btn-ghost">Explore security</a>
       </div>
 
-      <!-- Partner chips -->
-      <div class="mt-10 flex flex-wrap justify-center gap-2">
-        <span class="text-xs md:text-sm px-3 py-1 rounded-full border border-white/10 bg-white/5">Microsoft Partner</span>
-        <span class="text-xs md:text-sm px-3 py-1 rounded-full border border-white/10 bg-white/5">Dicker Data Partner</span>
+      <div style="margin-top:22px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <span class="chip">Microsoft Partner</span>
+        <span class="chip">Dicker Data Partner</span>
       </div>
     </div>
   </section>
 
   <!-- Apps -->
-  <section id="apps" class="border-t border-white/5 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6 py-14">
-      <h2 class="text-3xl font-bold text-center">Apps we build</h2>
-      <p class="text-center text-slate-300 mt-2">From idea to store—design, build, deploy, support.</p>
+  <section id="apps" class="section border-top">
+    <div class="container">
+      <h2 class="center" style="font-size:32px">Apps we build</h2>
+      <p class="center muted" style="margin-top:8px">From idea to store—design, build, deploy, support.</p>
 
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] hover:shadow-lg hover:bg-white/10 transition">
-          <h3 class="font-semibold text-xl">Sweet India</h3>
-          <p class="text-sm text-slate-300 mt-2">Multi-branch attendance &amp; shift tracking with approvals, role-based access, and transparent records.</p>
-          <div class="mt-3 flex gap-3">
-            <a href="#" class="underline text-sm text-emerald-400 hover:text-emerald-300">Google Play</a>
-            <a href="#" class="underline text-sm text-emerald-400 hover:text-emerald-300">App Store</a>
+      <div class="grid grid-2" style="margin-top:28px">
+        <div class="card">
+          <h3 style="font-size:20px">Sweet India</h3>
+          <p class="muted" style="margin-top:8px">
+            Multi-branch attendance &amp; shift tracking with approvals, role-based access, and transparent records.
+          </p>
+          <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#" class="btn btn-ghost" style="font-size:14px">Google Play</a>
+            <a href="#" class="btn btn-ghost" style="font-size:14px">App Store</a>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] hover:shadow-lg hover:bg-white/10 transition">
-          <h3 class="font-semibold text-xl">Qwickin</h3>
-          <p class="text-sm text-slate-300 mt-2">Productivity &amp; IT utilities for SMEs—built and secured by our in-house team.</p>
-          <div class="mt-3 flex gap-3">
-            <a href="#" class="underline text-sm text-emerald-400 hover:text-emerald-300">Google Play</a>
-            <a href="#" class="underline text-sm text-emerald-400 hover:text-emerald-300">App Store</a>
+        <div class="card">
+          <h3 style="font-size:20px">Qwickin</h3>
+          <p class="muted" style="margin-top:8px">
+            Productivity &amp; IT utilities for SMEs—built and secured by our in-house team.
+          </p>
+          <div style="margin-top:10px;display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#" class="btn btn-ghost" style="font-size:14px">Google Play</a>
+            <a href="#" class="btn btn-ghost" style="font-size:14px">App Store</a>
           </div>
         </div>
       </div>
@@ -115,31 +174,31 @@
   </section>
 
   <!-- Security -->
-  <section id="security" class="border-t border-white/5 bg-slate-900/60">
-    <div class="max-w-6xl mx-auto px-6 py-14">
-      <h2 class="text-3xl font-bold text-center">Cybersecurity</h2>
-      <p class="text-center text-slate-300 mt-2">Hands-on security to protect your business.</p>
+  <section id="security" class="section section-soft border-top">
+    <div class="container">
+      <h2 class="center" style="font-size:32px">Cybersecurity</h2>
+      <p class="center muted" style="margin-top:8px">Hands-on security to protect your business.</p>
 
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900 shadow hover:shadow-lg">
-          <h3 class="font-semibold text-lg">SOC (24×7)</h3>
-          <ul class="mt-3 text-sm text-slate-300 list-disc pl-5">
+      <div class="grid grid-3" style="margin-top:28px">
+        <div class="card">
+          <h3 style="font-size:18px">SOC (24×7)</h3>
+          <ul class="muted" style="margin:10px 0 0 18px;line-height:1.7">
             <li>SIEM onboarding &amp; alert tuning</li>
             <li>Continuous monitoring &amp; incident response</li>
             <li>Threat intel &amp; executive reporting</li>
           </ul>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900 shadow hover:shadow-lg">
-          <h3 class="font-semibold text-lg">Penetration Testing</h3>
-          <ul class="mt-3 text-sm text-slate-300 list-disc pl-5">
+        <div class="card">
+          <h3 style="font-size:18px">Penetration Testing</h3>
+          <ul class="muted" style="margin:10px 0 0 18px;line-height:1.7">
             <li>Web, mobile, API &amp; network testing</li>
             <li>Cloud (Azure/AWS) assessments</li>
             <li>Clear, prioritised remediation</li>
           </ul>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-slate-900 shadow hover:shadow-lg">
-          <h3 class="font-semibold text-lg">GRC</h3>
-          <ul class="mt-3 text-sm text-slate-300 list-disc pl-5">
+        <div class="card">
+          <h3 style="font-size:18px">GRC</h3>
+          <ul class="muted" style="margin:10px 0 0 18px;line-height:1.7">
             <li>Policies &amp; risk management</li>
             <li>ISO 27001 / SOC 2 readiness</li>
             <li>Awareness &amp; training</li>
@@ -150,37 +209,37 @@
   </section>
 
   <!-- IT & Web -->
-  <section id="services" class="border-t border-white/5 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6 py-14">
-      <h2 class="text-3xl font-bold text-center">IT &amp; Web Services</h2>
-      <p class="text-center text-slate-300 mt-2">From greenfield builds to ongoing support.</p>
+  <section id="services" class="section border-top">
+    <div class="container">
+      <h2 class="center" style="font-size:32px">IT &amp; Web Services</h2>
+      <p class="center muted" style="margin-top:8px">From greenfield builds to ongoing support.</p>
 
-      <div class="mt-10 grid md:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-          <h3 class="font-semibold text-lg">IT Support (from scratch)</h3>
-          <p class="text-sm text-slate-300 mt-2">Device setup, helpdesk, backups, monitoring.</p>
+      <div class="grid grid-4" style="margin-top:28px">
+        <div class="card">
+          <h3 style="font-size:18px">IT Support (from scratch)</h3>
+          <p class="muted" style="margin-top:8px">Device setup, helpdesk, backups, monitoring.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-          <h3 class="font-semibold text-lg">Microsoft 365</h3>
-          <p class="text-sm text-slate-300 mt-2">Licensing, email, identity, security baselines.</p>
+        <div class="card">
+          <h3 style="font-size:18px">Microsoft 365</h3>
+          <p class="muted" style="margin-top:8px">Licensing, email, identity, security baselines.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-          <h3 class="font-semibold text-lg">Web Design</h3>
-          <p class="text-sm text-slate-300 mt-2">Fast, responsive sites that convert.</p>
+        <div class="card">
+          <h3 style="font-size:18px">Web Design</h3>
+          <p class="muted" style="margin-top:8px">Fast, responsive sites that convert.</p>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-          <h3 class="font-semibold text-lg">Infrastructure &amp; Cloud</h3>
-          <p class="text-sm text-slate-300 mt-2">Networks, servers, Azure/AWS, scale &amp; security.</p>
+        <div class="card">
+          <h3 style="font-size:18px">Infrastructure &amp; Cloud</h3>
+          <p class="muted" style="margin-top:8px">Networks, servers, Azure/AWS, scale &amp; security.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="border-t border-white/5 bg-slate-900/60">
-    <div class="max-w-6xl mx-auto px-6 py-14 text-center">
-      <h2 class="text-3xl font-bold">About Qwickin</h2>
-      <p class="mt-4 text-slate-300 max-w-3xl mx-auto">
+  <section id="about" class="section section-soft2 border-top">
+    <div class="container center">
+      <h2 style="font-size:32px">About Qwickin</h2>
+      <p class="muted" style="margin-top:12px;max-width:800px;margin-left:auto;margin-right:auto">
         We’re builders and defenders. Our team delivers production-ready apps, secure-by-design systems,
         and dependable IT operations for SMBs across Australia and India.
       </p>
@@ -188,38 +247,52 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="border-t border-white/5 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-      <h2 class="text-3xl font-bold text-center">Contact</h2>
-      <p class="mt-3 text-center text-slate-300">
-        Email: <a href="mailto:info@qwickin.com" class="underline text-emerald-400 hover:text-emerald-300">info@qwickin.com</a>
+  <section id="contact" class="section border-top">
+    <div class="container">
+      <h2 class="center" style="font-size:32px">Contact</h2>
+      <p class="center" style="margin-top:10px">
+        Email:
+        <a class="btn btn-ghost" href="mailto:info@qwickin.com" style="border-color:var(--accent);color:var(--accent)">info@qwickin.com</a>
       </p>
 
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
-          <h3 class="font-semibold text-lg">Melbourne, Australia</h3>
-          <p class="text-sm text-slate-300 mt-2">Phone: <a class="underline" href="tel:+61424127808">+61 424 127 808</a></p>
+      <div class="grid grid-2" style="margin-top:28px">
+        <div class="card">
+          <h3 style="font-size:18px">Melbourne, Australia</h3>
+          <p class="muted" style="margin-top:8px">Phone: <a class="btn btn-ghost" href="tel:+61424127808">+61 424 127 808</a></p>
         </div>
-        <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
-          <h3 class="font-semibold text-lg">Hyderabad, India</h3>
-          <p class="text-sm text-slate-300 mt-2">Phone: <a class="underline" href="tel:+919985655665">+91 99856 55665</a></p>
+        <div class="card">
+          <h3 style="font-size:18px">Hyderabad, India</h3>
+          <p class="muted" style="margin-top:8px">Phone: <a class="btn btn-ghost" href="tel:+919985655665">+91 99856 55665</a></p>
         </div>
       </div>
 
-      <div class="mt-10 text-center">
-        <a href="mailto:info@qwickin.com" class="inline-block rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-semibold px-6 py-3 transition">Start your project</a>
+      <div class="center" style="margin-top:28px">
+        <a href="mailto:info@qwickin.com" class="btn btn-primary" style="padding:14px 22px;font-size:16px">Start your project</a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/5 bg-slate-950 py-10 text-center text-sm text-slate-400">
+  <footer class="section-tight" style="text-align:center;border-top:1px solid var(--line);color:#9db0c7">
     © <span id="y"></span> Qwickin. All rights reserved.
   </footer>
 
   <script>
+    // Year
     document.getElementById('y').textContent = new Date().getFullYear();
-    const btn=document.getElementById('menuBtn'), menu=document.getElementById('mobileMenu');
-    if(btn&&menu){ btn.addEventListener('click',()=>menu.classList.toggle('hidden')); }
+    // Mobile menu (injects links so we keep markup minimal)
+    (function(){
+      var btn=document.getElementById('menuBtn'), mob=document.getElementById('mobile');
+      if(!btn||!mob) return;
+      mob.innerHTML = `
+        <a href="#apps">Apps</a>
+        <a href="#security">Security</a>
+        <a href="#services">IT & Web</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn btn-primary" style="display:inline-block;margin-top:8px">Book a call</a>
+      `;
+      btn.addEventListener('click', function(){ mob.classList.toggle('open'); });
+    })();
   </script>
 </body>
 </html>
