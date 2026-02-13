@@ -3,215 +3,856 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Qwickin — Apps, Cybersecurity (SOC, Pentest, GRC), IT & Web</title>
-  <meta name="description" content="We build apps and deliver SOC, penetration testing, GRC, IT support from scratch, Microsoft 365, and modern web design. Melbourne & Hyderabad." />
+  <title>QwickIn — Enterprise Apps, Cybersecurity & IT Solutions</title>
+  <meta name="description" content="Professional apps, SOC operations, penetration testing, GRC, and full-stack IT solutions. Built by cybersecurity practitioners in Melbourne & Hyderabad." />
   <link rel="canonical" href="https://qwickin.com/">
   <link rel="icon" href="/favicon.ico">
 
-  <!-- Elegant font -->
+  <!-- Premium Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    :root {
+      --qwickin-green: #7CBD5E;
+      --qwickin-dark: #1a1a1a;
+      --qwickin-accent: #5ea87c;
+    }
+    
     html { scroll-behavior: smooth; }
-    body { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+    
+    body { 
+      font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f8fafb 0%, #ffffff 100%);
+    }
+    
+    h1, h2, h3, .display-font {
+      font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    /* Premium animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      animation: slideUp 0.8s ease-out forwards;
+    }
+
+    .animate-delay-1 { animation-delay: 0.1s; }
+    .animate-delay-2 { animation-delay: 0.2s; }
+    .animate-delay-3 { animation-delay: 0.3s; }
+    .animate-delay-4 { animation-delay: 0.4s; }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    /* Premium card hover effect */
+    .premium-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .premium-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--qwickin-green), var(--qwickin-accent));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .premium-card:hover::before {
+      opacity: 1;
+    }
+
+    .premium-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(124, 189, 94, 0.15);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--qwickin-green), var(--qwickin-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Glass morphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--qwickin-green);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--qwickin-accent);
+    }
+
+    /* Section decoration */
+    .section-decoration {
+      position: relative;
+    }
+
+    .section-decoration::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--qwickin-green), transparent);
+      border-radius: 2px;
+    }
   </style>
 </head>
-<body class="bg-white text-slate-900 relative overflow-x-hidden">
-  <!-- Decorative background -->
-  <div class="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[28rem] w-[60rem] rounded-full bg-gradient-to-b from-green-200/50 via-emerald-100/30 to-transparent blur-3xl -z-10"></div>
+<body class="text-slate-900 relative overflow-x-hidden">
+  
+  <!-- Animated background elements -->
+  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute top-20 left-10 w-72 h-72 rounded-full floating" 
+         style="background: radial-gradient(circle, rgba(124,189,94,0.15) 0%, transparent 70%);"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full floating glow" 
+         style="background: radial-gradient(circle, rgba(94,168,124,0.12) 0%, transparent 70%); animation-delay: 2s;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-3xl opacity-30"
+         style="background: radial-gradient(circle, rgba(124,189,94,0.2) 0%, transparent 60%);"></div>
+  </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 border-b border-slate-100/70 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <img src="qwickin-logo.svg" alt="Qwickin" class="h-12 md:h-14 lg:h-16 w-auto" />
-        <span class="sr-only">Qwickin</span>
+  <header class="sticky top-0 z-50 glass border-b border-white/30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3 group">
+        <img src="qwickin-logo.svg" alt="QwickIn" class="h-12 md:h-14 lg:h-16 w-auto transition-transform group-hover:scale-105" />
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-7 text-[15px]">
-        <a href="#apps" class="hover:text-emerald-600 transition">Apps</a>
-        <a href="#security" class="hover:text-emerald-600 transition">Security</a>
-        <a href="#services" class="hover:text-emerald-600 transition">Services</a>
-        <a href="#about" class="hover:text-emerald-600 transition">About</a>
-        <a href="#contact" class="hover:text-emerald-600 transition">Contact</a>
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+        <a href="#apps" class="hover:text-[var(--qwickin-green)] transition-colors relative group">
+          Apps
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--qwickin-green)] group-hover:w-full transition-all"></span>
+        </a>
+        <a href="#portfolio" class="hover:text-[var(--qwickin-green)] transition-colors relative group">
+          Clients
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--qwickin-green)] group-hover:w-full transition-all"></span>
+        </a>
+        <a href="#security" class="hover:text-[var(--qwickin-green)] transition-colors relative group">
+          Security
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--qwickin-green)] group-hover:w-full transition-all"></span>
+        </a>
+        <a href="#services" class="hover:text-[var(--qwickin-green)] transition-colors relative group">
+          Services
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--qwickin-green)] group-hover:w-full transition-all"></span>
+        </a>
+        <a href="#about" class="hover:text-[var(--qwickin-green)] transition-colors relative group">
+          About
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--qwickin-green)] group-hover:w-full transition-all"></span>
+        </a>
+        <a href="#contact" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[var(--qwickin-green)] to-[var(--qwickin-accent)] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+          Contact
+        </a>
       </nav>
 
       <!-- Mobile menu button -->
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg border text-slate-700" aria-label="Open menu">
-        ☰
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg glass text-slate-700 hover:bg-white/80 transition" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
       </button>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden border-t bg-white/90 backdrop-blur">
-      <nav class="max-w-6xl mx-auto px-6 py-3 flex flex-col gap-3 text-[15px]">
-        <a href="#apps" class="py-1">Apps</a>
-        <a href="#security" class="py-1">Security</a>
-        <a href="#services" class="py-1">Services</a>
-        <a href="#about" class="py-1">About</a>
-        <a href="#contact" class="py-1">Contact</a>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/30 glass">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-3 text-[15px] font-medium">
+        <a href="#apps" class="py-2 hover:text-[var(--qwickin-green)] transition">Apps</a>
+        <a href="#portfolio" class="py-2 hover:text-[var(--qwickin-green)] transition">Clients</a>
+        <a href="#security" class="py-2 hover:text-[var(--qwickin-green)] transition">Security</a>
+        <a href="#services" class="py-2 hover:text-[var(--qwickin-green)] transition">Services</a>
+        <a href="#about" class="py-2 hover:text-[var(--qwickin-green)] transition">About</a>
+        <a href="#contact" class="py-2 hover:text-[var(--qwickin-green)] transition">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Partner “chips” -->
-  <section class="max-w-6xl mx-auto px-6 mt-4">
-    <div class="flex flex-wrap items-center gap-2 md:gap-3 border rounded-2xl p-3">
-      <span class="text-sm text-gray-600 mr-1">Partners:</span>
-      <span class="text-xs md:text-sm px-3 py-1 rounded-full border bg-white">Microsoft Partner</span>
-      <span class="text-xs md:text-sm px-3 py-1 rounded-full border bg-white">Dicker Data Partner</span>
+  <!-- Partner badges -->
+  <section class="max-w-7xl mx-auto px-6 mt-6 animate-on-scroll">
+    <div class="glass rounded-2xl p-6 shadow-lg border-2 border-[var(--qwickin-green)]">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--qwickin-green)] to-[var(--qwickin-accent)] flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-sm text-gray-600 font-semibold block">Official Technology Partners</span>
+            <span class="text-xs text-gray-500">Certified & Authorized</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="px-5 py-3 rounded-xl border-2 border-blue-500 bg-blue-50 font-bold text-blue-700 hover:bg-blue-500 hover:text-white transition shadow-md flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623"/>
+            </svg>
+            Microsoft Partner
+          </div>
+          <div class="px-5 py-3 rounded-xl border-2 border-orange-500 bg-orange-50 font-bold text-orange-700 hover:bg-orange-500 hover:text-white transition shadow-md flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+            </svg>
+            Dicker Data Partner
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main class="max-w-6xl mx-auto px-6">
-    <!-- Hero -->
-    <section class="py-14 md:py-16 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-        Quick. Reliable. <span class="text-emerald-600">Professional.</span>
+  <main class="max-w-7xl mx-auto px-6">
+    
+    <!-- Hero Section -->
+    <section class="py-20 md:py-28 text-center relative">
+      <div class="animate-on-scroll">
+        <div class="inline-block px-4 py-2 rounded-full bg-green-50 border border-green-200 text-green-700 font-semibold text-sm mb-6">
+          Built by Cybersecurity Practitioners
+        </div>
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.1] tracking-tight animate-on-scroll animate-delay-1">
+        Quick. Reliable.<br/>
+        <span class="gradient-text">Professional.</span>
       </h1>
-      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-        We build products and secure them—apps, SOC operations, penetration testing & GRC.
-        Full-stack IT support from scratch, Microsoft 365, infrastructure, and modern web design.
+      
+      <p class="mt-8 text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed animate-on-scroll animate-delay-2">
+        We build products and secure them—apps, SOC operations, penetration testing & GRC.<br/>
+        Full-stack IT support, Microsoft 365, infrastructure, and modern web solutions.
       </p>
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <a href="#contact" class="rounded-xl px-5 py-3 bg-emerald-600 text-white font-medium shadow-sm hover:bg-emerald-700 transition">Talk to us</a>
-        <a href="#apps" class="rounded-xl px-5 py-3 border font-medium hover:bg-slate-50 transition">See our apps</a>
+      
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5 animate-on-scroll animate-delay-3">
+        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--qwickin-green)] to-[var(--qwickin-accent)] text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+          Get Started →
+        </a>
+        <a href="#apps" class="w-full sm:w-auto px-8 py-4 rounded-xl border-2 border-slate-300 font-bold text-lg hover:border-[var(--qwickin-green)] hover:bg-green-50 transition-all">
+          Explore Apps
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 animate-on-scroll animate-delay-4">
+        <div class="glass p-6 rounded-2xl">
+          <div class="text-4xl font-bold gradient-text">24/7</div>
+          <div class="text-sm text-slate-600 mt-2 font-medium">SOC Monitoring</div>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <div class="text-4xl font-bold gradient-text">100%</div>
+          <div class="text-sm text-slate-600 mt-2 font-medium">Secure by Design</div>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <div class="text-4xl font-bold gradient-text">2</div>
+          <div class="text-sm text-slate-600 mt-2 font-medium">Global Offices</div>
+        </div>
+        <div class="glass p-6 rounded-2xl">
+          <div class="text-4xl font-bold gradient-text">SMB</div>
+          <div class="text-sm text-slate-600 mt-2 font-medium">Focused Solutions</div>
+        </div>
       </div>
     </section>
 
-    <!-- Apps -->
-    <section id="apps" class="py-12 border-t">
-      <h2 class="text-3xl font-bold text-center">Apps we build</h2>
-      <p class="text-center text-slate-600 mt-2">From idea to publish—design, build, deploy, and support.</p>
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-xl">Sweet India</h3>
-          <p class="text-sm text-slate-600 mt-2">
-            Multi-branch attendance & shift tracking with approvals, role-based access, and transparent records.
+    <!-- Apps Section -->
+    <section id="apps" class="py-20 section-decoration">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold">Apps We Build</h2>
+        <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+          From concept to deployment—design, develop, secure, and support your custom applications.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">Sweet India</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Production App</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+          </div>
+          
+          <p class="text-slate-600 mt-6 leading-relaxed">
+            Multi-branch attendance & shift tracking with approvals, role-based access, and transparent records for hospitality management.
           </p>
-          <div class="mt-3 flex gap-3">
-            <a href="#" class="underline text-sm">Google Play</a>
-            <a href="#" class="underline text-sm">App Store</a>
+          
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">React Native</span>
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">Firebase</span>
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">Multi-tenant</span>
+          </div>
+          
+          <div class="mt-8 flex gap-4">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 5.5L10.5 3L18 5.5L18 19.5L10.5 22L3 19.5V5.5Z"/>
+              </svg>
+              Google Play
+            </a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5Z"/>
+              </svg>
+              App Store
+            </a>
           </div>
         </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-xl">Qwickin</h3>
-          <p class="text-sm text-slate-600 mt-2">
-            Productivity & IT utilities for SMEs—built and secured by our in-house team.
+
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">QwickIn Suite</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Business Tools</p>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--qwickin-green)] to-[var(--qwickin-accent)] flex items-center justify-center">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+          </div>
+          
+          <p class="text-slate-600 mt-6 leading-relaxed">
+            Productivity & IT utilities for SMEs—built and secured by cybersecurity practitioners for real-world business needs.
           </p>
-          <div class="mt-3 flex gap-3">
-            <a href="#" class="underline text-sm">Google Play</a>
-            <a href="#" class="underline text-sm">App Store</a>
+          
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">Cross-platform</span>
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">Cloud-native</span>
+            <span class="px-3 py-1 bg-slate-100 rounded-full text-xs font-semibold text-slate-700">Secure</span>
+          </div>
+          
+          <div class="mt-8 flex gap-4">
+            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 5.5L10.5 3L18 5.5L18 19.5L10.5 22L3 19.5V5.5Z"/>
+              </svg>
+              Google Play
+            </a>
+            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5Z"/>
+              </svg>
+              App Store
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Cybersecurity -->
-    <section id="security" class="py-12 border-t">
-      <h2 class="text-3xl font-bold text-center">Cybersecurity</h2>
-      <p class="text-center text-slate-600 mt-2">Hands-on security services to protect your business.</p>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">SOC (24×7)</h3>
-          <ul class="mt-2 text-sm text-slate-600 list-disc pl-5">
-            <li>SIEM onboarding & alert tuning</li>
-            <li>Continuous monitoring & incident response</li>
-            <li>Threat intel & reporting</li>
+    <!-- Customers Portfolio Section -->
+    <section id="portfolio" class="py-20 section-decoration">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold">Trusted by Growing Businesses</h2>
+        <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+          We're proud to partner with innovative companies across Australia, delivering solutions that drive real business outcomes.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mt-12">
+        <!-- Sweet India -->
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">Sweet India</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Hospitality & Restaurant Chain</p>
+            </div>
+            <a href="https://sweetindia.com.au/" target="_blank" rel="noopener noreferrer" 
+               class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-[var(--qwickin-green)] hover:text-white transition group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+          <p class="text-slate-600 mb-4">
+            Custom mobile app for multi-branch staff attendance, shift management, and role-based access control across their restaurant locations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold">Mobile App Development</span>
+            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Cloud Infrastructure</span>
+            <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold">IT Support</span>
+          </div>
+        </div>
+
+        <!-- SK Concrete Constructions -->
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">SK Concrete Constructions</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Construction & Engineering</p>
+            </div>
+            <a href="https://www.skconcreteconstructions.com/" target="_blank" rel="noopener noreferrer" 
+               class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-[var(--qwickin-green)] hover:text-white transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+          <p class="text-slate-600 mb-4">
+            Professional website design and digital presence, IT infrastructure setup, and ongoing technical support for construction operations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold">Web Design</span>
+            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">IT Infrastructure</span>
+            <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-semibold">Managed Services</span>
+          </div>
+        </div>
+
+        <!-- ASH Accountants -->
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">ASH Accountants</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Accounting & Financial Services</p>
+            </div>
+            <a href="https://ashaccountants.com.au/#/home" target="_blank" rel="noopener noreferrer" 
+               class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-[var(--qwickin-green)] hover:text-white transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+          <p class="text-slate-600 mb-4">
+            Secure IT solutions, Microsoft 365 implementation, cybersecurity consulting, and compliance-focused infrastructure for financial services.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold">Cybersecurity</span>
+            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Microsoft 365</span>
+            <span class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-xs font-semibold">Compliance</span>
+          </div>
+        </div>
+
+        <!-- Accutech Consultants -->
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="font-bold text-2xl text-slate-900">Accutech Consultants</h3>
+              <p class="text-slate-500 text-sm mt-1 font-medium">Technology Consulting</p>
+            </div>
+            <a href="https://accutechconsultants.com.au/" target="_blank" rel="noopener noreferrer" 
+               class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center hover:bg-[var(--qwickin-green)] hover:text-white transition">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </div>
+          <p class="text-slate-600 mb-4">
+            Complete digital transformation, cloud migration strategies, IT consulting services, and enterprise-grade technology solutions.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold">Digital Transformation</span>
+            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Cloud Migration</span>
+            <span class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-xs font-semibold">IT Consulting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Client testimonial or stats -->
+      <div class="mt-16 text-center glass p-8 rounded-2xl">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">4+</div>
+            <div class="text-slate-600 font-medium">Active Clients</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+            <div class="text-slate-600 font-medium">Client Satisfaction</div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold gradient-text mb-2">Growing</div>
+            <div class="text-slate-600 font-medium">Portfolio</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cybersecurity Section -->
+    <section id="security" class="py-20 section-decoration">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold">Cybersecurity Excellence</h2>
+        <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+          Hands-on security services delivered by practitioners who build and defend daily.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl mb-4">SOC Operations (24×7)</h3>
+          <ul class="space-y-3 text-slate-600">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>SIEM onboarding & alert tuning</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Continuous monitoring & incident response</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Threat intelligence & detailed reporting</span>
+            </li>
           </ul>
         </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">Penetration Testing</h3>
-          <ul class="mt-2 text-sm text-slate-600 list-disc pl-5">
-            <li>Web/App/API testing</li>
-            <li>Network & cloud assessments</li>
-            <li>Clear, prioritized remediation</li>
+
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl mb-4">Penetration Testing</h3>
+          <ul class="space-y-3 text-slate-600">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Web, Mobile & API security testing</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Network & cloud infrastructure assessments</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Clear, actionable remediation guidance</span>
+            </li>
           </ul>
         </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">GRC</h3>
-          <ul class="mt-2 text-sm text-slate-600 list-disc pl-5">
-            <li>Policies & risk management</li>
-            <li>Compliance readiness (ISO 27001, SOC 2, etc.)</li>
-            <li>Awareness & training</li>
+
+        <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-xl mb-4">GRC (Governance, Risk & Compliance)</h3>
+          <ul class="space-y-3 text-slate-600">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Security policies & risk management</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Compliance frameworks (ISO 27001, SOC 2)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-[var(--qwickin-green)] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span>Security awareness & staff training</span>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- IT & Web Services -->
-    <section id="services" class="py-12 border-t">
-      <h2 class="text-3xl font-bold text-center">IT & Web Services</h2>
-      <p class="text-center text-slate-600 mt-2">From greenfield builds to ongoing support.</p>
-      <div class="mt-8 grid md:grid-cols-4 gap-6">
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">IT Support (from scratch)</h3>
-          <p class="text-sm text-slate-600 mt-2">Device setup, helpdesk, backups, monitoring.</p>
-        </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">Microsoft 365</h3>
-          <p class="text-sm text-slate-600 mt-2">Licensing, email, identity, security baselines.</p>
-        </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">Web Design</h3>
-          <p class="text-sm text-slate-600 mt-2">Fast, responsive sites that convert.</p>
-        </div>
-        <div class="p-6 rounded-2xl border shadow-sm hover:shadow-md transition">
-          <h3 class="font-semibold text-lg">Infrastructure & Cloud</h3>
-          <p class="text-sm text-slate-600 mt-2">Networks, servers, Azure/AWS, scale & security.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="py-12 border-t">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold">About Qwickin</h2>
-        <p class="mt-4 text-slate-600">
-          We’re builders and defenders. Our team delivers production-ready apps, secure-by-design systems,
-          and dependable IT operations for SMBs across Australia and India.
+    <section id="services" class="py-20 section-decoration">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold">Complete IT Solutions</h2>
+        <p class="text-lg text-slate-600 mt-4 max-w-2xl mx-auto">
+          From greenfield deployments to ongoing managed services—we've got you covered.
         </p>
       </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+        <div class="premium-card p-6 rounded-2xl bg-white border border-slate-200 shadow-lg text-center">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">IT Support</h3>
+          <p class="text-sm text-slate-600">Device setup, helpdesk, backups, monitoring from day one.</p>
+        </div>
+
+        <div class="premium-card p-6 rounded-2xl bg-white border border-slate-200 shadow-lg text-center">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Microsoft 365</h3>
+          <p class="text-sm text-slate-600">Licensing, email, identity & security baselines.</p>
+        </div>
+
+        <div class="premium-card p-6 rounded-2xl bg-white border border-slate-200 shadow-lg text-center">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-400 to-purple-500 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Web Design</h3>
+          <p class="text-sm text-slate-600">Fast, responsive sites that drive conversions.</p>
+        </div>
+
+        <div class="premium-card p-6 rounded-2xl bg-white border border-slate-200 shadow-lg text-center">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Cloud & Infrastructure</h3>
+          <p class="text-sm text-slate-600">Networks, servers, Azure/AWS deployment.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact / Branches -->
-    <section id="contact" class="py-16 border-t">
+    <!-- About Section -->
+    <section id="about" class="py-20 section-decoration">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-center">Contact</h2>
-        <p class="mt-3 text-center text-slate-600">
-          Email: <a href="mailto:info@qwickin.com" class="underline">info@qwickin.com</a>
-        </p>
-        <div class="mt-10 grid md:grid-cols-2 gap-6">
-          <div class="p-6 rounded-2xl border shadow-sm">
-            <h3 class="font-semibold text-lg">Melbourne, Australia</h3>
-            <p class="text-sm text-slate-600 mt-2">
-              Phone: <a class="underline" href="tel:+61424127808">+61 424 127 808</a>
-            </p>
-          </div>
-          <div class="p-6 rounded-2xl border shadow-sm">
-            <h3 class="font-semibold text-lg">Hyderabad, India</h3>
-            <p class="text-sm text-slate-600 mt-2">
-              Phone: <a class="underline" href="tel:+919985655665">+91 99856 55665</a>
-            </p>
+        <div class="glass p-12 rounded-3xl shadow-xl">
+          <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">About QwickIn</h2>
+          <p class="text-lg text-slate-600 text-center leading-relaxed mb-6">
+            We're builders and defenders. Our team delivers production-ready apps, secure-by-design systems,
+            and dependable IT operations for small and medium businesses across Australia and India.
+          </p>
+          <p class="text-lg text-slate-600 text-center leading-relaxed">
+            <span class="font-semibold text-slate-900">Built by cybersecurity practitioners</span>, not just developers—
+            every solution we create is architected with security, reliability, and scalability at its core.
+          </p>
+          
+          <div class="mt-10 grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div class="text-3xl font-bold gradient-text mb-2">Expert Team</div>
+              <p class="text-sm text-slate-600">Security-first mindset in everything we build</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold gradient-text mb-2">Full Stack</div>
+              <p class="text-sm text-slate-600">Apps, security, infrastructure & support</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold gradient-text mb-2">SMB Focused</div>
+              <p class="text-sm text-slate-600">Enterprise quality for growing businesses</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-decoration">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl md:text-5xl font-bold">Get In Touch</h2>
+          <p class="text-lg text-slate-600 mt-4">
+            Ready to build something great? Let's talk.
+          </p>
+          <p class="mt-6">
+            <a href="/cdn-cgi/l/email-protection#01686f676e41707668626a686f2f626e6c" class="text-2xl font-bold gradient-text hover:underline">
+              <span class="__cf_email__" data-cfemail="d7beb9b1b897a6a0beb4bcbeb9f9b4b8ba">[email&#160;protected]</span>
+            </a>
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8 mt-12">
+          <!-- Melbourne Office -->
+          <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-[var(--qwickin-green)] to-[var(--qwickin-accent)] flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-xl mb-2">Melbourne, Australia</h3>
+                <p class="text-slate-600 mb-3">
+                  Unit 88/150 Palmers Road<br/>
+                  Truganina VIC 3029
+                </p>
+                <div class="flex items-center gap-2 text-slate-700">
+                  <svg class="w-5 h-5 text-[var(--qwickin-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                  <a href="tel:+61424127808" class="font-semibold hover:text-[var(--qwickin-green)] transition">
+                    +61 424 127 808
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hyderabad Office -->
+          <div class="premium-card p-8 rounded-3xl bg-white border border-slate-200 shadow-lg">
+            <div class="flex items-start gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center flex-shrink-0">
+                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-bold text-xl mb-2">Hyderabad, India</h3>
+                <p class="text-slate-600 mb-3">
+                  Development & Support Center
+                </p>
+                <div class="flex items-center gap-2 text-slate-700">
+                  <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                  <a href="tel:+919985655665" class="font-semibold hover:text-orange-500 transition">
+                    +91 99856 55665
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20">
+      <div class="glass p-12 md:p-16 rounded-3xl text-center shadow-xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+          Whether you need a custom app, comprehensive security, or reliable IT support—we're here to help you succeed.
+        </p>
+        <a href="#contact" class="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-[var(--qwickin-green)] to-[var(--qwickin-accent)] text-white font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all">
+          Start Your Project Today →
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="py-10 text-center text-sm text-slate-500 border-t">
-    © <span id="y"></span> Qwickin. All rights reserved.
+  <!-- Footer -->
+  <footer class="py-12 text-center border-t border-slate-200 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <img src="qwickin-logo.svg" alt="QwickIn" class="h-10 w-auto" />
+          <span class="text-sm text-slate-500">
+            © <span id="year"></span> QwickIn IT Services. All rights reserved.
+          </span>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-slate-600">
+          <a href="#apps" class="hover:text-[var(--qwickin-green)] transition">Apps</a>
+          <a href="#portfolio" class="hover:text-[var(--qwickin-green)] transition">Clients</a>
+          <a href="#security" class="hover:text-[var(--qwickin-green)] transition">Security</a>
+          <a href="#services" class="hover:text-[var(--qwickin-green)] transition">Services</a>
+          <a href="#contact" class="hover:text-[var(--qwickin-green)] transition">Contact</a>
+        </div>
+      </div>
+      <div class="mt-6 text-xs text-slate-500">
+        ABN: QWICKIN PTY LTD | Built with security at the core
+      </div>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const btn = document.getElementById('menuBtn');
-    const menu = document.getElementById('mobileMenu');
-    if (btn && menu) btn.onclick = () => menu.classList.toggle('hidden');
-  </script>
-</body>
-</html>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.onclick = () => mobileMenu.classList.toggle('hidden');
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Close mobile menu if open
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'tra
