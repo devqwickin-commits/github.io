@@ -156,6 +156,54 @@
       background: linear-gradient(90deg, transparent, var(--qwickin-green), transparent);
       border-radius: 2px;
     }
+
+    /* Partner Carousel */
+    .partner-carousel {
+      overflow: hidden;
+      position: relative;
+      padding: 30px 0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+    }
+
+    .partner-track {
+      display: flex;
+      animation: scroll 20s linear infinite;
+      gap: 60px;
+    }
+
+    .partner-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .partner-logo {
+      flex-shrink: 0;
+      width: 200px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: grayscale(80%) opacity(0.7);
+      transition: all 0.3s ease;
+      padding: 5px;
+    }
+
+    .partner-logo:hover {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.08);
+    }
+
+    .partner-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body class="text-slate-900 relative overflow-x-hidden">
@@ -225,34 +273,47 @@
     </div>
   </header>
 
-  <!-- Partner badges -->
+  <!-- Partner Carousel -->
   <section class="max-w-7xl mx-auto px-6 mt-6 animate-on-scroll">
-    <div class="glass rounded-2xl p-6 shadow-lg border-2 border-[var(--qwickin-green)]">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--qwickin-green)] to-[var(--qwickin-accent)] flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <div>
-            <span class="text-sm text-gray-600 font-semibold block">Official Technology Partners</span>
-            <span class="text-xs text-gray-500">Certified & Authorized</span>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <div class="px-5 py-3 rounded-xl border-2 border-blue-500 bg-blue-50 font-bold text-blue-700 hover:bg-blue-500 hover:text-white transition shadow-md flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M0 0h11.377v11.372H0zm12.623 0H24v11.372H12.623zM0 12.623h11.377V24H0zm12.623 0H24V24H12.623"/>
-            </svg>
-            Microsoft Partner
-          </div>
-          <div class="px-5 py-3 rounded-xl border-2 border-orange-500 bg-orange-50 font-bold text-orange-700 hover:bg-orange-500 hover:text-white transition shadow-md flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-            </svg>
-            Dicker Data Partner
-          </div>
+    <div class="rounded-2xl overflow-hidden shadow-lg">
+      <div class="glass p-6 text-center">
+        <h3 class="text-lg font-bold text-gray-800 flex items-center justify-center gap-2 mb-1">
+          <svg class="w-6 h-6 text-[var(--qwickin-green)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Trusted Technology Partners
+        </h3>
+        <p class="text-sm text-gray-500">Certified & Authorized Partnerships</p>
+      </div>
+      
+      <div class="partner-carousel">
+        <div class="partner-track">
+          <!-- Microsoft -->
+          <a href="https://www.microsoft.com/partner" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Microsoft Partner">
+            <img src="microsoft-logo.svg" alt="Microsoft Partner" />
+          </a>
+          
+          <!-- Dicker Data -->
+          <a href="https://www.dickerdata.com.au/" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Dicker Data Partner">
+            <img src="dicker-data-logo.svg" alt="Dicker Data Partner" />
+          </a>
+          
+          <!-- Duplicates for seamless scrolling -->
+          <a href="https://www.microsoft.com/partner" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Microsoft Partner">
+            <img src="microsoft-logo.svg" alt="Microsoft Partner" />
+          </a>
+          
+          <a href="https://www.dickerdata.com.au/" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Dicker Data Partner">
+            <img src="dicker-data-logo.svg" alt="Dicker Data Partner" />
+          </a>
+          
+          <a href="https://www.microsoft.com/partner" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Microsoft Partner">
+            <img src="microsoft-logo.svg" alt="Microsoft Partner" />
+          </a>
+          
+          <a href="https://www.dickerdata.com.au/" target="_blank" rel="noopener noreferrer" class="partner-logo" title="Dicker Data Partner">
+            <img src="dicker-data-logo.svg" alt="Dicker Data Partner" />
+          </a>
         </div>
       </div>
     </div>
@@ -290,6 +351,10 @@
       <!-- Stats -->
       <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 animate-on-scroll animate-delay-4">
         <div class="glass p-6 rounded-2xl">
+          <div class="text-4xl font-bold gradient-text">50+</div>
+          <div class="text-sm text-slate-600 mt-2 font-medium">Active Clients</div>
+        </div>
+        <div class="glass p-6 rounded-2xl">
           <div class="text-4xl font-bold gradient-text">24/7</div>
           <div class="text-sm text-slate-600 mt-2 font-medium">SOC Monitoring</div>
         </div>
@@ -300,10 +365,6 @@
         <div class="glass p-6 rounded-2xl">
           <div class="text-4xl font-bold gradient-text">2</div>
           <div class="text-sm text-slate-600 mt-2 font-medium">Global Offices</div>
-        </div>
-        <div class="glass p-6 rounded-2xl">
-          <div class="text-4xl font-bold gradient-text">SMB</div>
-          <div class="text-sm text-slate-600 mt-2 font-medium">Focused Solutions</div>
         </div>
       </div>
     </section>
@@ -342,13 +403,14 @@
           </div>
           
           <div class="mt-8 flex gap-4">
-            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+            <!-- TODO: Update with actual Sweet India app URLs -->
+            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition" title="Download on Google Play">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 5.5L10.5 3L18 5.5L18 19.5L10.5 22L3 19.5V5.5Z"/>
               </svg>
               Google Play
             </a>
-            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition" title="Download on App Store">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5Z"/>
               </svg>
@@ -381,13 +443,14 @@
           </div>
           
           <div class="mt-8 flex gap-4">
-            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+            <!-- TODO: Update with actual QwickIn Suite app URLs -->
+            <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition" title="Download on Google Play">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 5.5L10.5 3L18 5.5L18 19.5L10.5 22L3 19.5V5.5Z"/>
               </svg>
               Google Play
             </a>
-            <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition">
+            <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition" title="Download on App Store">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5Z"/>
               </svg>
