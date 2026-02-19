@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://qwickin.com/sitemap.xml
+
+# Block common sensitive areas (if any exist in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*utm_*
+
+# Crawl-delay (optional - prevents server overload)
+Crawl-delay: 1
